@@ -1,0 +1,47 @@
+.header {
+  @include flex();
+  @include box-shadow();
+  background-image: url('../images/golf.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 25%;
+
+  h1 {
+    color: #fff;
+    font-size: 5em;
+  };
+};
+
+.my-container {
+  @include flex();
+  height: 75%;
+  width: 100%;
+
+  #content {
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  };
+};
+
+// bootstrap overwrites
+
+.card-img-top {
+  height: 200px;
+};
+
+.card {
+  @include box-shadow();
+  margin: 40px;
+};
+
+.btn {
+  @include box-shadow-btn();
+};
+
+.card-body {
+  @include flex();
+  flex-direction: column;
+};

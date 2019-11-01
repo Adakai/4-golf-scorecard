@@ -1,0 +1,70 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 3px 7px 4px #2a2a2a78;
+  background-image: url("../images/golf.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 25%; }
+  .header h1 {
+    color: #fff;
+    font-size: 5em; }
+
+.my-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 100%; }
+  .my-container #content {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; }
+
+.card-img-top {
+  height: 200px; }
+
+.card {
+  box-shadow: 0px 3px 7px 4px #2a2a2a78;
+  margin: 40px; }
+
+.btn {
+  box-shadow: 0px 1px 2px 1px #2a2a2a78; }
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  background-color: #dadfea; }
+
+@media screen and (max-width: 1100px) {
+  html, body {
+    height: 1350px; }
+  .header {
+    height: 15%; }
+    .header h1 {
+      font-size: 4em; }
+  .my-container {
+    height: 85%; } }
+
+@media screen and (max-width: 733px) {
+  html, body {
+    height: 1600px; }
+  .header {
+    height: 10%; }
+    .header h1 {
+      font-size: 3em; }
+  .my-container {
+    height: 90%; } }

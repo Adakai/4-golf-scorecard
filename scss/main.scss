@@ -1,0 +1,47 @@
+@import 'mixins.scss';
+@import 'varibles.scss';
+@import '_courses.scss';
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  background-color: #dadfea;
+};
+
+@media screen and (max-width: 1100px) {
+  html, body {
+    height: 1350px;
+  };
+  .header {
+    height: 15%;
+    h1 { 
+      font-size: 4em;
+    };
+  };
+  .my-container {
+    height: 85%;
+  };
+ 
+};
+  
+@media screen and (max-width: 733px) {
+  html, body {
+    height: 1600px;
+  };
+  .header {
+    height: 10%;
+    h1 { 
+      font-size: 3em;
+    };
+  };
+  .my-container {
+    height: 90%;
+  };
+};
+
+
+
