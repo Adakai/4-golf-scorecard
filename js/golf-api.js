@@ -11,11 +11,12 @@
 }());
 
 function getCourse(id) {
+  console.log(id);
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
       course = JSON.parse(this.responseText);
-      displayCourse(course.data);
+      courseContent(course.data);
     };
   };
   xhr.open('GET', `https://golf-courses-api.herokuapp.com/courses/${id}`, true);
