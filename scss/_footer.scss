@@ -1,0 +1,24 @@
+.footer {
+  @include box-shadow();
+  @include flex();
+  justify-content: flex-end;
+  height: 25px;
+  width: 100%;
+  background-color: $green;
+  position: fixed;
+  bottom: 0;
+
+  .footer-name {
+    @include flex();
+    height: 100%;
+    width: 20%;
+
+    p {
+      text-align: center;
+      font-size: .8em;
+      color: $white;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
