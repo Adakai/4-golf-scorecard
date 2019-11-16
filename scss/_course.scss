@@ -1,6 +1,36 @@
-.selections {
-  width: 200px;
-  height: 30px;
-  background-color: $white;
-  text-align: center;
+#content_container {
+  width: 100%;
+
+  #selections {
+    @include flex();
+    justify-content: space-evenly;
+    width: 100%;
+
+    .selection {
+      width: 200px;
+      height: 30px;
+      background-color: $white;
+      text-align: center;
+    }
+  }
+
+  #score_card {
+    @include flex();
+    padding: 10px;
+    margin: 20px 10px 20px 10px;
+    border: 2px solid black;
+    
+    .column {
+      margin-right: 10px;
+      text-align: center;
+    }
+
+    .mini-box {
+      border: 1px solid $green;
+      min-height: 30px;
+      min-width: 30px;
+    }
+  }
 }
+
+

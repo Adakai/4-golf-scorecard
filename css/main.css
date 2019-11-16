@@ -39,11 +39,33 @@
   align-items: center;
   flex-direction: column; }
 
-.selections {
-  width: 200px;
-  height: 30px;
-  background-color: #fff;
-  text-align: center; }
+#content_container {
+  width: 100%; }
+  #content_container #selections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%; }
+    #content_container #selections .selection {
+      width: 200px;
+      height: 30px;
+      background-color: #fff;
+      text-align: center; }
+  #content_container #score_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 10px 20px 10px;
+    border: 2px solid black; }
+    #content_container #score_card .column {
+      margin-right: 10px;
+      text-align: center; }
+    #content_container #score_card .mini-box {
+      border: 1px solid #5e753f;
+      min-height: 30px;
+      min-width: 30px; }
 
 .footer {
   box-shadow: 0px 3px 7px 4px #2a2a2a78;
