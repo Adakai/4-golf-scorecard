@@ -3,6 +3,7 @@ let title = document.getElementById('title');
 let run = false;
 let contentContainer;
 let course;
+let scoreCard;
 
 function displayCourses(allCourses) {
   for (let i = 0; i < allCourses.length; i++) {
@@ -23,7 +24,7 @@ function displayCourses(allCourses) {
 }
 
 function getDifficulty(courseData) {
-  course = courseData;
+  course = courseData.holes;
   title.innerText = courseData.name;
 
   showContent.innerHTML = '';
@@ -34,7 +35,7 @@ function getDifficulty(courseData) {
     `
       <div id="content_container">
         <div id="selections">
-          <select class="selection" id="difficulty" onchange="courseContent(this.options[difficulty.selectedIndex].value)">
+          <select class="selection" id="difficulty" onchange="showHoles(this.options[difficulty.selectedIndex].value)">
             <option selected disabled>Select Difficulty</option>
           </select>
           <input type="text">
@@ -52,51 +53,95 @@ function getDifficulty(courseData) {
       'beforeend',
       `
         <option value="${i}">
-          ${courseData.holes[0].teeBoxes[i].teeType}
+          ${course[0].teeBoxes[i].teeType}
         </option>
       `
     );
   }
 }
 
-function courseContent(tee) {
-  console.log(course.holes[0].teeBoxes[tee]);
-
+function showHoles(tee) {
   if(run === false) {
+    run = true;
     contentContainer.insertAdjacentHTML(
       'beforeend',
       `
-        <div id="score_card"></div>
+        <div id="score_card">
+          <div class="mini-box-head">
+            <div id="col" class="column">Hole</div>
+            <div class="column">Yards</div>
+            <div class="column">Par</div>
+          </div>  
+        </div>
       `
     );
 
-    buildCol();
+    for(let h = 0; h <= course.length; h++) {
+      console.log(course[h])
+      scoreCard = document.getElementById('score_card');
+      scoreCard.insertAdjacentHTML(
+        'beforeend', 
+        `
+        <div class="mini-box">
+          <div id="col${course[h].hole}" class="column">${course[h].hole}</div>
+          <div id="yar${course[h].hole}" class="column">${course[h].teeBoxes[tee].yards}</div>
+          <div id="par${course[h].hole}" class="column">${course[h].teeBoxes[tee].par}</div>
+        </div>
+        `
+      ) 
+    };
   } else {
-    buildCol();
+    scoreCard.innerHTML = '';
+
+    scoreCard.insertAdjacentHTML(
+      'beforeend',
+      `
+        <div class="mini-box-head">
+          <div id="col" class="column">Hole</div>
+          <div class="column">Yards</div>
+          <div class="column">Par</div>
+        </div>  
+      `
+    );
+
+
+    for(let h = 0; h <= course.length; h++) {
+      console.log(course[h])
+      scoreCard = document.getElementById('score_card');
+      scoreCard.insertAdjacentHTML(
+        'beforeend', 
+        `
+        <div class="mini-box">
+          <div id="col${course[h].hole}" class="column">${course[h].hole}</div>
+          <div id="yar${course[h].hole}" class="column">${course[h].teeBoxes[tee].yards}</div>
+          <div id="par${course[h].hole}" class="column">${course[h].teeBoxes[tee].par}</div>
+        </div>
+        `
+      ) 
+    };
   }
-  
 };
 
-function buildCol() {
-  if(run === false) {
-    for(let c = 0; c <= 18; c++) {
-      $('#score_card').append(`<div id="col${c}" class="column">Hole ${c}</div>`);
-    };
-    run = true;
-    buildHoles();
-  } else {
+// function buildHoles(holes) {
+//   if(run === false) {
+//     for(let c = 0; c <= holes.length; c++) {
+//       $('#score_card').append(`<div id="col${holes[c]}" class="column">Hole ${holes[c]}</div>`);
+//     };
+//     run = true;
     
-  }
-};
+//   } else {
+    
+//   }
+// };
 
 
-function buildHoles() {
-    for(let h = 0; h <= 18; h++) {
-      $('#col' + h).append(`<div id="" class="mini-box"></div>`)
-    };
-};
+// function buildHoles() {
+//     for(let h = 0; h <= 18; h++) {
+//       $('#col' + h).append(`<div id="" class="mini-box"></div>`)
+//     };
+// };
 
-function addPlayer() {
-  buildHoles();
-  $('.namelist').append(`<div contenteditable="true" class="namelist"><span>Name</span></div>`)
-}
+// function addPlayer() {
+//   buildHoles();
+//   $('.namelist').append(`<div contenteditable="true" class="namelist"><span>Name</span></div>`)
+// }
