@@ -1,9 +1,10 @@
 class Player {
-  constructor() {
+  constructor(id) {
     this.names = [];
     this.score = 0;
     this.scoreIn = 0;
     this.scoreOut = 0;
+    this.id = id;
   }
 
   addPlayer(player) {

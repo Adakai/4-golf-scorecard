@@ -1,8 +1,9 @@
 let showContent = document.getElementById("content");
 let title = document.getElementById("title");
+let run = false;
 let contentContainer;
-let course;
 let scoreCard;
+let course;
 
 function displayCourses(allCourses) {
   for (let i = 0; i < allCourses.length; i++) {
@@ -65,30 +66,31 @@ function getDifficulty(courseData) {
 }
 
 function setUpCard(tee) {
-    contentContainer.insertAdjacentHTML(
-      "beforeend",
-      `
-        <div id="score_card"></div>
-      `
-    );
-    scoreCard = document.getElementById("score_card");
-    showHoles(tee);
+  myPlayer.names = [];
+  contentContainer.insertAdjacentHTML(
+    "beforeend",
+    `
+      <div id="score_card"></div>
+    `
+  );
+  scoreCard = document.getElementById("score_card");
+  showHoles(tee);
 }
 
 function showHoles(tee) {
-  console.log(course[0].teeBoxes);
+  // console.log(course[0].teeBoxes);
   scoreCard.innerHTML = "";
   let totalYards = 0;
   let totalPar = 0;
   scoreCard.insertAdjacentHTML(
     "beforeend",
     `
-        <div id="score_title">
-          <div id="col" class="column mini-box-head">Hole</div>
-          <div class="column mini-box-head">Yards</div>
-          <div id="par" class="column mini-box-head">Par</div>
-        </div>  
-      `
+      <div id="score_title">
+        <div id="col" class="column mini-box-head">Hole</div>
+        <div class="column mini-box-head">Yards</div>
+        <div id="par" class="column mini-box-head">Par</div>
+      </div>  
+    `
   );
 
   for (let h = 0; h <= course.length - 1; h++) {
@@ -122,10 +124,8 @@ function addPlayer() {
   let player = document.getElementById('player').value;
   let scoreTitle = document.getElementById('score_title');
   let playerTotal = document.getElementById('player_total')
+  let ranId = Math.floor(Math.random() * 1000);
   let playerPoints;
-  let run = false;
-
-  console.log(playerPoints);
   
   myPlayer.addPlayer(player);
   scoreTitle.innerHTML = '';
@@ -138,20 +138,6 @@ function addPlayer() {
       <div id="par" class="column mini-box-head">Par</div>
     `
   )
-
-  if(run === true) {
-    console.log('hi');
-    playerPoints.innerHTML = '';
-
-    playerPoints.insertAdjacentHTML(
-      'beforeend',
-      `
-        <div id="col${course[h].hole}" class="column mini-box">${course[h].hole}</div>
-        <div id="yar${course[h].hole}" class="column mini-box">${course[h].teeBoxes[tee].yards}</div>
-        <div id="par${course[h].hole}" class="column mini-box">${course[h].teeBoxes[tee].par}</div>
-      `
-    )
-  }
   
   for(let p = 0; p < myPlayer.names.length; p++) {
     scoreTitle.insertAdjacentHTML(
@@ -160,16 +146,17 @@ function addPlayer() {
         <div id="player_${myPlayer.names[p]}" contentEditable="true" class="column mini-box-head">${myPlayer.names[p]}</div>
       `
     )
-    for(let i = 0; i < course.length; i++) {
-      playerPoints = document.getElementById(`player_points${i}`);
-      console.log(playerPoints)
-      playerPoints.insertAdjacentHTML(
-        'beforeend',
-        `
-          <div id="player_${myPlayer.names[p]}${i}_points" contentEditable='true' class="column mini-box">0</div>
-        `
-      )
-    }
+  }
+
+  console.log(ranId)
+  for(let i = 0; i < course.length; i++) {
+    playerPoints = document.getElementById(`player_points${i}`);
+    playerPoints.insertAdjacentHTML(
+      'beforeend',
+      `
+        <div id="player_${ranId}_points" contentEditable='true' class="column mini-box">0</div>
+      `
+    )
   }
 
   playerTotal.insertAdjacentHTML(
@@ -178,6 +165,7 @@ function addPlayer() {
       <div class="column mini-box">total</div>
     `
   )
+  run = true;
 };
 
 // function show(player) {
