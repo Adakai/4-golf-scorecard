@@ -23,6 +23,9 @@
   width: 100%;
   background-color: #dadfea; }
 
+.my-container #update_score {
+  margin-top: 60px; }
+
 .card-img-top {
   height: 250px; }
 
@@ -56,13 +59,13 @@
       height: 35 px;
       border-radius: 5px;
       width: 200px;
-      margin-bottom: 10px; }
+      margin-bottom: 40px; }
     #content_container #selections .add-player {
       display: flex;
       justify-content: center;
       align-items: center;
       align-items: center;
-      margin-bottom: 10px; }
+      margin-bottom: 40px; }
       #content_container #selections .add-player input {
         height: 35px;
         border-radius: 5px;
@@ -73,7 +76,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin: 20px 10px 20px 10px;
+    margin: 50px 10px 20px 10px;
     overflow: hidden;
     overflow: auto; }
     #content_container #score_card .column {
@@ -84,7 +87,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 5px;
+      margin: 15px 5px 15px 5px;
       border-radius: 5px;
       border: 1px solid #5e753f;
       min-height: 30px;
@@ -93,11 +96,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 5px;
+      margin: 15px 5px 15px 5px;
       border-radius: 5px;
       border: 1px solid #5e753f;
       min-height: 30px;
       min-width: 100px; }
+    #content_container #score_card .inactive {
+      background-color: #5e753f; }
 
 .footer {
   box-shadow: 0px 3px 7px 4px #2a2a2a78;
