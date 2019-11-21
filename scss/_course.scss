@@ -15,13 +15,13 @@
       height: 35 px;
       border-radius: 5px;
       width: 200px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .add-player{
       @include flex();
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
 
       input {
         height: 35px;
@@ -34,8 +34,9 @@
 
   #score_card {
     @include flex();
+    justify-content: flex-start;
     padding: 10px;
-    margin: 50px 10px 20px 10px;
+    margin: 20px 10px 20px 10px;
     // width: 1200px;
     overflow: hidden;
     overflow: auto;

@@ -25,9 +25,13 @@
     background-color: $gray;
   };
 
-  #update_score {
-    margin-top: 60px;
+  #warning{
+    color: red;
   }
+
+  // #update_score {
+  //   margin-top: 60px;
+  // }
 };
 
 // bootstrap overwrites

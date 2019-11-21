@@ -23,8 +23,8 @@
   width: 100%;
   background-color: #dadfea; }
 
-.my-container #update_score {
-  margin-top: 60px; }
+.my-container #warning {
+  color: red; }
 
 .card-img-top {
   height: 250px; }
@@ -59,13 +59,13 @@
       height: 35 px;
       border-radius: 5px;
       width: 200px;
-      margin-bottom: 40px; }
+      margin-bottom: 20px; }
     #content_container #selections .add-player {
       display: flex;
       justify-content: center;
       align-items: center;
       align-items: center;
-      margin-bottom: 40px; }
+      margin-bottom: 20px; }
       #content_container #selections .add-player input {
         height: 35px;
         border-radius: 5px;
@@ -75,8 +75,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: flex-start;
     padding: 10px;
-    margin: 50px 10px 20px 10px;
+    margin: 20px 10px 20px 10px;
     overflow: hidden;
     overflow: auto; }
     #content_container #score_card .column {
@@ -140,14 +141,14 @@ body {
 
 @media screen and (max-width: 900px) {
   .header h1 {
-    font-size: 4em; }
+    font-size: 3em; }
   .selections {
     width: 175px;
     height: 27px; } }
 
 @media screen and (max-width: 600px) {
   .header h1 {
-    font-size: 3em; }
+    font-size: 2em; }
   .selections {
     width: 150px;
     height: 24px; } }
