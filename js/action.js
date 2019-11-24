@@ -202,14 +202,14 @@ function addPlayer() {
       playerOut.insertAdjacentHTML(
         "beforeend",
         `
-          <div class="column mini-box">0</div>
+          <div id="out${ranId}" class="column mini-box">0</div>
         `
       );
       
       playerIn.insertAdjacentHTML(
         "beforeend",
         `
-          <div class="column mini-box">0</div>
+          <div id="inScore${ranId}" class="column mini-box">0</div>
         `
       );
   
@@ -241,12 +241,10 @@ function addPlayer() {
 }
 
 function updateScore(id) {
-  let currentId;
-  
   if(id.length <= 4) {
     totalId = id.slice(0, -1);
     totalScore = document.getElementById(totalId);
-  } else if (id.length > 5) {
+  } else if (id.length >= 5) {
     totalId = id.slice(0, -2);
     totalScore = document.getElementById(totalId);
   }
@@ -256,24 +254,66 @@ function updateScore(id) {
 
   setTimeout(function() {
     checkScore();
-  }, 1000)
+  }, 50)
 
   function checkScore() {
     if(score.textContent !== '') {
       myPlayer.updateScore(score.textContent);
-      myPlayer.setScore(totalId);
+      myPlayer.setId(totalId);
     } else {
       setTimeout(function() {
         checkScore();
-      }, 1000)
+      }, 50)
     }
   }
 }
 
-function showScore() {
+function showScore(id) {
 //  let score = document.getElementById(totalScore);
- totalScore.innerText = '';
- totalScore.innerText = myPlayer.totalScore;
+//  totalScore.innerText = '';
+//  totalScore.innerText = myPlayer.totalScore;
+console.log(myPlayer.totalScore1 + ' p1');
+console.log(myPlayer.totalScore2 + ' p2');
+console.log(myPlayer.totalScore3 + ' p3');
+console.log(myPlayer.totalScore4 + ' p4');
+
+  if(myPlayer.ids[0] === id) {
+    let num = 0;
+    let num2 = 0;
+    let out = document.getElementById(`out${id}`);
+    let inScore = document.getElementById(`inScore${id}`);
+    for(let i = 1; i < myPlayer.total1.length; i++) {
+      console.log(num2);
+      console.log(num)
+      if(i <= 9) {
+        num += Number(myPlayer.total1[i])
+        out.innerText = '';
+        out.innerText = num;
+      } else if (i > 9) {
+        num2 += Number(myPlayer.total1[i])
+        inScore.innerText = '';
+        inScore.innerText = num2;
+      }
+    }
+    totalScore = document.getElementById(id);
+    totalScore.innerText = '';
+    totalScore.innerText = myPlayer.totalScore1;
+  }
+  if(myPlayer.ids[1] === id) {
+    totalScore = document.getElementById(id);
+    totalScore.innerText = '';
+    totalScore.innerText = myPlayer.totalScore2;
+  }
+  if(myPlayer.ids[2] === id) {
+    totalScore = document.getElementById(id);
+    totalScore.innerText = '';
+    totalScore.innerText = myPlayer.totalScore3;
+  }
+  if(myPlayer.ids[3] === id) {
+    totalScore = document.getElementById(id);
+    totalScore.innerText = '';
+    totalScore.innerText = myPlayer.totalScore4;
+  }
 }
 
 
